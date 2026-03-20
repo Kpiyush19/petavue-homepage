@@ -842,7 +842,7 @@
   /* WORKFLOWS */
   .workflows-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .workflows-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
-  .workflow-card { background: var(--color-neutral-50); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .workflow-card { background: var(--color-neutral-50); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; text-align: left; }
   .workflow-card svg { flex-shrink: 0; }
   .workflow-card h4 { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 600; }
   .workflow-card p { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--color-neutral-500); line-height: 28px; margin: 0; }
@@ -958,7 +958,7 @@
     position: relative; z-index: 0; text-align: center;
     margin-top: 1rem; overflow: hidden;
   }
-  .footer-watermark img { max-width: 100%; height: auto; margin: 0 auto; display: block; }
+  .footer-watermark img { width: 100%; height: auto; margin: 0 auto; display: block; }
 
   @media (max-width: 991px) {
     .footer { padding: 48px 24px 32px; }
@@ -969,6 +969,7 @@
   @media (max-width: 479px) {
     .footer { padding: 40px 16px 24px; }
     .footer-links { gap: 32px; }
+    .footer-watermark img { width: 355.5px; height: 68.77px; }
   }
 
   /* ─── TABLET (768px) ─── */
