@@ -770,7 +770,7 @@
   /* SAGE */
   .sage-section { background: var(--bg); }
   .sage-domain-section { background: #fff; padding-top: 100px; padding-bottom: 100px; }
-  .sage-intro { max-width: none; margin: 0; text-align: left; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .sage-intro { max-width: none; margin: 0; text-align: left; display: flex; flex-direction: row; gap: 48px; align-items: center; }
   .sage-intro-text { flex: 1; }
   .sage-intro .sage-example-inline { flex: 1; }
   .sage-intro h2 { font-family: 'Manrope', sans-serif; font-size: 48px; font-weight: 600; line-height: 125%; letter-spacing: -0.96px; color: #2D3044; margin-bottom: 20px; }
@@ -1057,6 +1057,7 @@
     .template-strip-icon { display: none; }
 
     /* Sage */
+    .sage-intro { flex-direction: column; }
     .sage-intro h2 { font-size: 32px; }
     .sage-intro p { font-size: 15px; }
     .sage-visual-placeholder { height: 240px; }
