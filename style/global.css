@@ -336,7 +336,7 @@
   .hero-badge::after { content: ''; position: absolute; inset: 1.5px; background: var(--surface); border-radius: 100px; z-index: -1; }
   @keyframes hero-badge-spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
   .hero-badge .dot { display: none; }
-  .hero h1 { font-family: 'Cooper LT BT', 'Manrope', sans-serif; font-size: 60px; font-weight: 400; line-height: 130%; letter-spacing: -2.4px; max-width: 1080px; margin-bottom: 24px; animation: fadeInUp 0.6s 0.1s ease both; color: #2D3044; text-align: center; }
+  .hero h1 { font-family: 'Cooper LT BT', 'Manrope', sans-serif; font-size: 60px; font-weight: 400; line-height: 130%; letter-spacing: -2.4px; max-width: 800px; margin-bottom: 24px; animation: fadeInUp 0.6s 0.1s ease both; color: #2D3044; text-align: center; }
   .hero h1 em { font-family: 'Cooper LT BT', 'Manrope', sans-serif; font-size: 60px; font-style: normal; font-weight: 400; line-height: 130%; letter-spacing: -2.4px; color: #3661ed; }
   .hero p.subtitle { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--text-muted); max-width: 640px; margin-bottom: 20px; line-height: 1.7; animation: fadeInUp 0.6s 0.2s ease both; }
   .hero-links { display: none; }
@@ -1152,7 +1152,9 @@
     .persona-tabs-wrap { flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; scrollbar-width: none; }
     .persona-tabs-wrap::-webkit-scrollbar { display: none; }
     .p-tab { flex: none; min-width: auto; white-space: nowrap; }
-    .sgb-note { display: none; }
+    .skill-group-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .sgb-line { display: none; }
+    .sgb-note { display: block; }
   }
 
   /* HOW IT WORKS */
