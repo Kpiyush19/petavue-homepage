@@ -77,11 +77,7 @@
 
     var panelId = items[index].getAttribute('data-panel');
     var targetDemo = document.getElementById(demoMap[panelId]);
-    if (targetDemo) {
-      targetDemo.classList.add('active');
-      var iframeEl = targetDemo.querySelector('.feature-tab-demo-iframe');
-      if (iframeEl) scaleMaIframe(targetDemo.id, iframeEl.id);
-    }
+    if (targetDemo) targetDemo.classList.add('active');
   }
 
   function startAutoPlay() {
@@ -108,27 +104,6 @@
   startAutoPlay();
 })();
 
-  // ── Metrics Agent iframe scaling ──
-  function scaleMaIframe(wrapId, iframeId) {
-    const wrap   = document.getElementById(wrapId);
-    const iframe = document.getElementById(iframeId);
-    if (!wrap || !iframe) return;
-    const scale = wrap.offsetWidth / 1080;
-    iframe.style.transform       = 'scale(' + scale + ')';
-    iframe.style.transformOrigin = 'top left';
-    wrap.style.height            = (660 * scale) + 'px';
-  }
-
-  function scaleAllMaIframes() {
-    scaleMaIframe('ma-demo-wrap-planning',   'ma-iframe-planning');
-    scaleMaIframe('ma-demo-wrap-metric',     'ma-iframe-metric');
-    scaleMaIframe('ma-demo-wrap-dashboards', 'ma-iframe-dashboards');
-  }
-
-  window.addEventListener('resize', scaleAllMaIframes);
-  window.addEventListener('load',   scaleAllMaIframes);
-  // Also scale once DOM is ready (before full load)
-  document.addEventListener('DOMContentLoaded', scaleAllMaIframes);
 
 // Persona recommendation tabs
 function updatePersonaTabIndicator() {
