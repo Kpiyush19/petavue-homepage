@@ -1,62 +1,3 @@
-// Navbar & Dropdown Logic
-(function() {
-  const menuBtn = document.querySelector('.navbar_menu-button');
-  const menu = document.querySelector('.navbar_menu');
-  const dropdowns = document.querySelectorAll('[data-dropdown]');
-
-  // Mobile menu toggle
-  menuBtn.addEventListener('click', function() {
-    this.classList.toggle('is-open');
-    menu.classList.toggle('is-open');
-    document.body.style.overflow = menu.classList.contains('is-open') ? 'hidden' : '';
-  });
-
-  // Dropdown toggle (click for mobile, hover for desktop)
-  dropdowns.forEach(function(dd) {
-    const toggle = dd.querySelector('.navbar_dropdown-toggle');
-
-    toggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const isOpen = dd.classList.contains('is-open');
-      // Close all other dropdowns
-      dropdowns.forEach(function(other) { other.classList.remove('is-open'); });
-      if (!isOpen) dd.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', !isOpen);
-    });
-
-    // Desktop hover
-    dd.addEventListener('mouseenter', function() {
-      if (window.innerWidth > 991) {
-        dd.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-      }
-    });
-    dd.addEventListener('mouseleave', function() {
-      if (window.innerWidth > 991) {
-        dd.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-
-  // Close dropdowns on outside click
-  document.addEventListener('click', function() {
-    dropdowns.forEach(function(dd) {
-      dd.classList.remove('is-open');
-      dd.querySelector('.navbar_dropdown-toggle').setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Close mobile menu on resize to desktop
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 991) {
-      menuBtn.classList.remove('is-open');
-      menu.classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
-  });
-})();
-
 // Feature accordion with auto-timer
 (function() {
   var items = Array.from(document.querySelectorAll('.feature-accordion-item'));
@@ -219,6 +160,14 @@ function switchSkillTab(btn) {
   });
 })();
 
+// Skill pills marquee — triplicate for seamless loop with 3 items
+(function() {
+  document.querySelectorAll('.skill-pills-track').forEach(function(track) {
+    var original = track.innerHTML;
+    track.innerHTML = original + original + original;
+  });
+})();
+
 
 // Workflow nodes sequential loop — one active at a time
 (function() {
@@ -292,3 +241,129 @@ function switchSkillTab(btn) {
 
   observer.observe(container);
 })();
+
+
+// FAQ accordion
+(function() {
+  document.querySelectorAll('[data-faq] .mktg-faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.mktg-faq-item');
+      var isOpen = item.classList.contains('is-open');
+      // Close all others
+      document.querySelectorAll('.mktg-faq-item.is-open').forEach(function(other) {
+        other.classList.remove('is-open');
+        other.querySelector('.mktg-faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+
+// Capabilities accordion with auto-timer
+(function() {
+  var items = Array.from(document.querySelectorAll('.cap-accordion-item'));
+  var demoPanels = document.querySelectorAll('.cap-demo-panel');
+  if (!items.length) return;
+
+  var currentIndex = 0;
+  var autoTimer = null;
+  var INTERVAL = 8000;
+
+  function activateItem(index) {
+    items.forEach(function(i) { i.classList.remove('active'); });
+    demoPanels.forEach(function(d) { d.classList.remove('active'); });
+    items[index].classList.add('active');
+    currentIndex = index;
+    var panelId = items[index].getAttribute('data-cap-panel');
+    var target = document.getElementById(panelId);
+    if (target) target.classList.add('active');
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoTimer = setInterval(function() {
+      var next = (currentIndex + 1) % items.length;
+      activateItem(next);
+    }, INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  items.forEach(function(item, i) {
+    item.querySelector('.cap-accordion-trigger').addEventListener('click', function() {
+      activateItem(i);
+      startAutoPlay();
+    });
+  });
+
+  activateItem(0);
+  startAutoPlay();
+})();
+
+
+// Navbar dark mode over dark sections
+(function() {
+  var isDark = false;
+
+  function updateNavDark() {
+    var nav = document.querySelector('.navbar_component');
+    var logo = nav && nav.querySelector('.navbar_logo');
+    if (!nav || !logo) return;
+
+    var darkSections = document.querySelectorAll('.mktg-role-section');
+    var navBottom = nav.getBoundingClientRect().bottom;
+    var inDark = false;
+
+    darkSections.forEach(function(section) {
+      // Skip hidden sections
+      if (section.style.display === 'none') return;
+      var rect = section.getBoundingClientRect();
+      if (rect.top < navBottom && rect.bottom > navBottom) {
+        inDark = true;
+      }
+    });
+
+    if (inDark && !isDark) {
+      isDark = true;
+      nav.classList.add('nav-dark');
+      logo.src = 'assets/petavue-logo-white.svg';
+    } else if (!inDark && isDark) {
+      isDark = false;
+      nav.classList.remove('nav-dark');
+      logo.src = 'assets/petavue-icon.svg';
+    }
+  }
+
+  window.addEventListener('scroll', updateNavDark, { passive: true });
+  document.addEventListener('components-loaded', function() {
+    updateNavDark();
+  });
+})();
+
+
+// Navbar transparent → filled on scroll
+(function() {
+  function updateNav() {
+    var nav = document.querySelector('.navbar_component');
+    if (!nav) return;
+    if (window.scrollY > 40) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  // Also run after components load in case navbar is injected late
+  document.addEventListener('components-loaded', updateNav);
+  updateNav();
+})();
+
+
+// How-it-works step badges (static — no animation)
