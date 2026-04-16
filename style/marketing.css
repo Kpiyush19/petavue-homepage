@@ -221,20 +221,46 @@
   display: none;
 }
 .mktg-hero .hero-badge {
-  display: none;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  padding: 8px 12px;
-  border-radius: 100px;
-  text-transform: uppercase;
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   font-weight: 400;
-  color: #1a1a1a;
-  margin-bottom: 32px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  box-shadow: none;
+}
+.hero-badge-keyword {
+  display: inline-block;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-weight: 500;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  background-image: linear-gradient(90deg, var(--color-primary-500), #825CDE, var(--color-primary-500));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: badgeGradient 3s linear infinite;
+}
+.hero-badge-keyword::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  border-radius: 7px;
+  z-index: -1;
+}
+@keyframes badgeGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 .mktg-hero .hero-badge-text {
   font-family: 'Inter', sans-serif;
@@ -476,7 +502,7 @@
 
 /* --- Illustration cards grid --- */
 .mktg-ill-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; max-width: 80rem; padding: 0; position: relative; z-index: 1; }
-.mktg-ill-card { background: transparent; border: none; border-radius: 16px; overflow: hidden; min-width: 0; box-shadow: none; }
+.mktg-ill-card { background: transparent; border: none; border-radius: 16px; overflow: visible; min-width: 0; box-shadow: none; display: flex; flex-direction: column; gap: 12px; }
 .mktg-ill-card.reveal-on-scroll:nth-child(1) { transition-delay: 0s; }
 .mktg-ill-card.reveal-on-scroll:nth-child(2) { transition-delay: 0.5s; }
 .mktg-ill-card.reveal-on-scroll:nth-child(3) { transition-delay: 1s; }
@@ -586,7 +612,7 @@
   .hiw-steps { padding: 0 16px; }
   .hiw-step-badge { padding: 5px 12px; font-size: 12px; }
   .mktg-how-section { padding: 40px 0 60px; }
-  .mktg-how-header { padding: 0 24px; }
+  .mktg-how-header { padding: 0; }
 }
 
 /* --- Problem section --- */
@@ -666,6 +692,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   background: none;
   border: 1px solid var(--color-neutral-100);
   border-radius: 100px;
@@ -920,7 +947,7 @@
 .stat-num {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-primary-500);
   line-height: 1.1;
 }
@@ -1050,8 +1077,8 @@
 }
 .cap-panel-layout {
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 40px;
+  grid-template-columns: 40% 60%;
+  gap: 48px;
   align-items: flex-start;
 }
 .cap-panel-left {
@@ -1162,14 +1189,20 @@
 .cap-panel-right {
   position: sticky;
   top: 120px;
+  border-radius: 16px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 100%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.3), 0 8px 32px rgba(54,97,237,0.1), 0 2px 8px rgba(0,0,0,0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  align-self: flex-start;
+  height: fit-content;
 }
 .cap-video-placeholder {
   width: 100%;
-  aspect-ratio: 964 / 525;
-  background: var(--color-neutral-50);
-  border: 1px solid #e5e5e5; border-radius: 14px; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border-radius: 8px;
+  overflow: hidden;
 }
 .cap-video-label { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--color-neutral-500); }
 /* cap-tab-card styles removed — using cap-acc accordion instead */
@@ -1229,20 +1262,47 @@
   text-align: center;
 }
 
-/* Video placeholder */
-.cap-video-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--color-neutral-50);
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
+/* Video placeholder — simple container, glass is on cap-panel-right */
+/* Video player controls */
+.video-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.video-wrap video {
+  cursor: pointer;
+}
+.video-play-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 32px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+  padding: 0;
 }
+.video-wrap:hover .video-play-btn {
+  opacity: 1;
+}
+.video-play-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: #fff;
+}
+.video-play-btn .icon-play { display: none; }
+.video-play-btn .icon-pause { display: block; }
+.video-play-btn.is-paused .icon-play { display: block; }
+.video-play-btn.is-paused .icon-pause { display: none; }
+
 .cap-video-label {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -1519,7 +1579,7 @@
   align-items: stretch;
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible;
 }
 .matrix-icon-cols {
   display: grid;
@@ -1542,7 +1602,7 @@
 }
 .matrix-col-title {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
 }
@@ -1654,16 +1714,19 @@
   width: 100%;
   max-width: 1000px;
   aspect-ratio: 964 / 525;
-  background: var(--color-neutral-50);
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
+  border-radius: 16px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 100%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.3), 0 8px 32px rgba(54,97,237,0.1), 0 2px 8px rgba(0,0,0,0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
   margin: 0 auto 48px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 .runs-video-label {
   font-family: 'Inter', sans-serif;
@@ -2350,8 +2413,8 @@
 .mktg-role-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   margin-bottom: 64px;
 }
 .mktg-role-header .section-heading {
@@ -2585,14 +2648,14 @@
 }
 .mktg-faq-layout {
   display: flex;
-  gap: 112px;
+  gap: 48px;
   align-items: flex-start;
   max-width: 80rem;
   margin: 0 auto;
   padding: 0;
 }
 .mktg-faq-left {
-  flex: 0 0 auto;
+  flex: 0 0 40%;
   min-width: 200px;
   position: sticky;
   top: 120px;
@@ -2966,7 +3029,7 @@
 
   /* Matrix — horizontal scroll, 3 equal columns */
   .mktg-matrix-section { padding: 64px 0; }
-  .matrix-columns { display: grid; grid-template-columns: 1fr 1fr 1fr; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; min-width: 600px; }
+  .matrix-columns { display: grid; grid-template-columns: 1fr 1fr 1fr; max-width: none; min-width: 600px; overflow: visible; }
   .matrix-col-labels { min-width: 0; }
   .matrix-icon-cols { display: contents; }
 
@@ -3001,11 +3064,22 @@
   /* Hero */
   .mktg-hero { padding: 100px 16px 48px; }
   .mktg-hero-inner { margin-top: 48px; }
+  /* Hero */
   .mktg-hero h1 { font-size: 28px; letter-spacing: -1px; }
   .mktg-hero h1 em { font-size: 28px; letter-spacing: -1px; }
   .mktg-hero .subtitle { font-size: 14px; }
+  .mktg-hero .hero-badge { padding: 0; }
   .hero-ctas { flex-direction: column; width: 100%; }
   .hero-ctas .btn-primary { width: 100%; justify-content: center; }
+
+  /* How section */
+  .mktg-how-header { max-width: 100%; padding: 0; }
+  .hiw-step-badge { font-size: 12px; padding: 4px 12px; }
+
+  /* Illustration cards */
+  .mktg-ill-card { align-items: flex-start; }
+  .mktg-ill-card-inner { background: none; padding: 0; }
+  .mktg-ill-card-body { padding: 12px 0 24px; }
 
   /* Capabilities — left align */
   .mktg-capabilities-section { padding: 48px 0; }
@@ -3021,10 +3095,10 @@
   .cap-acc-trigger { padding: 12px 8px; font-size: 12px; }
   .cap-acc-body p { font-size: 12px; padding: 0 0 12px 36px; }
 
-  /* Matrix — 3 equal columns with scroll */
-  .matrix-columns { grid-template-columns: 1fr 1fr 1fr; min-width: 500px; }
-  .matrix-col-features li { font-size: 14px; height: auto; padding: 12px 16px; }
-  .matrix-col-icons li { height: auto; padding: 12px 16px; }
+  /* Matrix — 3 equal columns with scroll, matched rows */
+  .matrix-columns { grid-template-columns: 1fr 1fr 1fr; min-width: 500px; overflow: visible; }
+  .matrix-col-features li { font-size: 14px; height: 48px; padding: 0 16px; }
+  .matrix-col-icons li { height: 48px; padding: 0 16px; }
   .matrix-col-header { padding: 16px; }
 
   /* Skills */
@@ -3035,10 +3109,12 @@
   /* Runs section */
   .runs-video-placeholder { max-width: 100%; }
 
-  /* Role section — remove left/right padding */
-  .mktg-role-panel.is-active { flex-direction: column; }
-  .mktg-role-left { width: 100%; padding-left: 0; padding-right: 0; }
-  .mktg-role-right { width: 100%; padding: 16px 0; }
+  /* Role section */
+  .mktg-role-header { align-items: flex-start; text-align: left; }
+  .mktg-role-tabs { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .mktg-role-panel.is-active { flex-direction: column; padding: 0; }
+  .mktg-role-left { width: 100%; padding: 0; }
+  .mktg-role-right { width: 100%; padding: 16px; }
   .mktg-role-title { font-size: 22px; }
   .mktg-role-points li { font-size: 14px; }
 
@@ -3047,17 +3123,10 @@
   .section-heading { font-size: 28px !important; }
   .section-sub { font-size: 14px !important; }
 
-  /* CTA — left align */
-  .mktg-cta-inner { text-align: left; padding: 0; }
+  /* CTA — left align with padding */
+  .mktg-cta-inner { text-align: left; padding: 0 16px; }
   .mktg-cta-content { align-items: flex-start; }
-  .mktg-cta-heading { text-align: left; }
-
-  /* CTA */
-  .mktg-cta-heading { font-size: 24px; }
+  .mktg-cta-heading { text-align: left; font-size: 24px; }
   .mktg-cta-sub { font-size: 14px; }
   .mktg-cta-dotbg { padding: 32px 0; }
-
-  /* How section */
-  .mktg-how-header { max-width: 100%; }
-  .hiw-step-badge { font-size: 12px; padding: 4px 12px; }
 }

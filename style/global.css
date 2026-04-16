@@ -219,7 +219,7 @@
   /* ─── MOBILE NAV ─── */
   @media (max-width: 991px) {
     .navbar_component { background: var(--bg); height: 81px; }
-    .navbar_container { padding: 16px 24px; position: relative; z-index: 9999; background: var(--bg); }
+    .navbar_container { padding: 0 24px; height: 100%; position: relative; z-index: 9999; background: var(--bg); }
     .navbar_menu {
       position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
       background: var(--bg); flex-direction: column;

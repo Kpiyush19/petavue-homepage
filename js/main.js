@@ -404,9 +404,81 @@ function switchSkillTab(btn) {
       panels.forEach(function(p) { p.classList.remove('is-active'); });
       tab.classList.add('is-active');
       updateIndicator(tab);
+      // Pause and reset all cap videos
+      panels.forEach(function(p) {
+        var v = p.querySelector('video');
+        if (v) { v.pause(); v.currentTime = 0; }
+        var b = p.querySelector('.video-play-btn');
+        if (b) b.classList.remove('is-paused');
+      });
       var panel = document.querySelector('.cap-tab-panel[data-cap-panel="' + target + '"]');
-      if (panel) panel.classList.add('is-active');
+      if (panel) {
+        panel.classList.add('is-active');
+        // Play the new panel's video
+        var newVideo = panel.querySelector('video');
+        if (newVideo) { newVideo.currentTime = 0; newVideo.play(); }
+      }
     });
+  });
+})();
+
+// Video play/pause + play only when in view
+(function() {
+  var userPaused = new Map();
+
+  function togglePlay(video, btn) {
+    if (video.paused) {
+      video.play();
+      userPaused.set(video, false);
+      if (btn) btn.classList.remove('is-paused');
+    } else {
+      video.pause();
+      userPaused.set(video, true);
+      if (btn) btn.classList.add('is-paused');
+    }
+  }
+
+  // IntersectionObserver — play when in view, pause when out
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var video = entry.target.querySelector('video');
+      var btn = entry.target.querySelector('.video-play-btn');
+      if (!video) return;
+      if (entry.isIntersecting) {
+        if (!userPaused.get(video)) {
+          video.play();
+          if (btn) btn.classList.remove('is-paused');
+        }
+      } else {
+        video.pause();
+        video.currentTime = 0;
+        userPaused.set(video, false);
+        if (btn) btn.classList.remove('is-paused');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.video-wrap').forEach(function(wrap) {
+    var video = wrap.querySelector('video');
+    var btn = wrap.querySelector('.video-play-btn');
+    if (!video) return;
+
+    // Don't autoplay — let observer handle it
+    video.pause();
+
+    video.addEventListener('click', function(e) {
+      e.preventDefault();
+      togglePlay(video, btn);
+    });
+
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        togglePlay(video, btn);
+      });
+    }
+
+    observer.observe(wrap);
   });
 })();
 
