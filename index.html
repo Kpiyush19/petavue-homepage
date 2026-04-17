@@ -80,10 +80,15 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="style/colorography.css">
-<link rel="stylesheet" href="style/global.css">
-<link rel="stylesheet" href="style/marketing.css">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Sans:wght@400;500;600;700&family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;500&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style/colorography.min.css">
+<link rel="stylesheet" href="style/global.min.css">
+<link rel="stylesheet" href="style/marketing.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/videos/hero.webp" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"></noscript>
 </head>
 <body>
 
@@ -108,7 +113,7 @@
   <!-- Hero video -->
   <div class="hero-media">
     <div class="hero-media-inner video-wrap video-wrap--hero">
-      <img class="video-thumb" src="assets/videos/hero.png" alt="">
+      <img class="video-thumb" src="assets/videos/hero.webp" width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
       <video muted loop playsinline preload="none" style="width:100%;display:block;object-fit:contain;border-radius:inherit;">
         <source src="assets/videos/Hero.mp4" type="video/mp4">
       </video>
@@ -285,7 +290,7 @@
   <p class="section-sub reveal-on-scroll" style="margin-bottom: 48px;">Skills are what make Petavue agents understand GTM data — not just retrieve it. Unlike static templates, Skills let the agent adapt concepts to your specific data and produce analysis tailored to your business.</p>
 
   <div class="runs-video-placeholder video-wrap">
-    <img class="video-thumb" src="assets/videos/skills.png" alt="">
+    <img class="video-thumb" src="assets/videos/skills.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
     <video muted loop playsinline preload="none" style="width:100%;display:block;object-fit:contain;border-radius:inherit;">
       <source data-src="assets/videos/Skills.mp4" type="video/mp4">
     </video>
@@ -502,7 +507,7 @@
           </div>
           <div class="cap-panel-right">
             <div class="cap-video-placeholder video-wrap">
-              <img class="video-thumb" src="assets/videos/dashboard.png" alt="">
+              <img class="video-thumb" src="assets/videos/dashboard.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
               <video muted loop playsinline preload="none" style="width:100%;display:block;object-fit:contain;border-radius:inherit;">
                 <source data-src="assets/videos/Dashboard.mp4" type="video/mp4">
               </video>
@@ -550,7 +555,7 @@
           </div>
           <div class="cap-panel-right">
             <div class="cap-video-placeholder video-wrap">
-              <img class="video-thumb" src="assets/videos/sage.png" alt="">
+              <img class="video-thumb" src="assets/videos/sage.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
               <video muted loop playsinline preload="none" style="width:100%;display:block;object-fit:contain;border-radius:inherit;">
                 <source data-src="assets/videos/SageAgent.mp4" type="video/mp4">
               </video>
@@ -598,7 +603,7 @@
           </div>
           <div class="cap-panel-right">
             <div class="cap-video-placeholder video-wrap">
-              <img class="video-thumb" src="assets/videos/workflow.png" alt="">
+              <img class="video-thumb" src="assets/videos/workflow.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
               <video muted loop playsinline preload="none" style="width:100%;display:block;object-fit:contain;border-radius:inherit;">
                 <source data-src="assets/videos/Workflow.mp4" type="video/mp4">
               </video>

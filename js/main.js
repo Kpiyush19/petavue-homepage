@@ -47,15 +47,20 @@
 
 
 // Persona recommendation tabs
+var _personaTabRaf = 0;
 function updatePersonaTabIndicator() {
-  var wrap = document.querySelector('.persona-tabs-wrap');
-  var active = wrap && wrap.querySelector('.p-tab.active');
-  if (!wrap || !active) return;
-  var wrapRect = wrap.getBoundingClientRect();
-  var tabRect = active.getBoundingClientRect();
-  var scrollOffset = wrap.scrollLeft;
-  wrap.style.setProperty('--ptab-active-width', tabRect.width + 'px');
-  wrap.style.setProperty('--ptab-active-x', (tabRect.left - wrapRect.left + scrollOffset) + 'px');
+  if (_personaTabRaf) return;
+  _personaTabRaf = requestAnimationFrame(function() {
+    _personaTabRaf = 0;
+    var wrap = document.querySelector('.persona-tabs-wrap');
+    var active = wrap && wrap.querySelector('.p-tab.active');
+    if (!wrap || !active) return;
+    var wrapRect = wrap.getBoundingClientRect();
+    var tabRect = active.getBoundingClientRect();
+    var scrollOffset = wrap.scrollLeft;
+    wrap.style.setProperty('--ptab-active-width', tabRect.width + 'px');
+    wrap.style.setProperty('--ptab-active-x', (tabRect.left - wrapRect.left + scrollOffset) + 'px');
+  });
 }
 
 function switchPersonaTab(persona, btn) {
@@ -308,43 +313,57 @@ function switchSkillTab(btn) {
 })();
 
 
-// Navbar dark mode over dark sections
+// Navbar dark mode over dark sections — uses IntersectionObserver
+// instead of scroll + getBoundingClientRect to avoid forced reflows.
 (function() {
-  var isDark = false;
-
-  function updateNavDark() {
+  var initialized = false;
+  function init() {
+    if (initialized) return;
     var nav = document.querySelector('.navbar_component');
     var logo = nav && nav.querySelector('.navbar_logo');
     if (!nav || !logo) return;
+    initialized = true;
 
     var darkSections = document.querySelectorAll('.mktg-role-section');
-    var navBottom = nav.getBoundingClientRect().bottom;
-    var inDark = false;
+    if (!darkSections.length) return;
 
-    darkSections.forEach(function(section) {
-      // Skip hidden sections
-      if (section.style.display === 'none') return;
-      var rect = section.getBoundingClientRect();
-      if (rect.top < navBottom && rect.bottom > navBottom) {
-        inDark = true;
+    var navHeight = nav.offsetHeight || 72;
+    var intersecting = new Set();
+    var isDark = false;
+
+    function applyDark(next) {
+      if (next === isDark) return;
+      isDark = next;
+      if (isDark) {
+        nav.classList.add('nav-dark');
+        logo.src = 'assets/petavue-logo-white.svg';
+      } else {
+        nav.classList.remove('nav-dark');
+        logo.src = 'assets/petavue-icon.svg';
       }
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) intersecting.add(entry.target);
+        else intersecting.delete(entry.target);
+      });
+      applyDark(intersecting.size > 0);
+    }, {
+      // Trigger when the section crosses the navbar's bottom edge
+      rootMargin: '-' + navHeight + 'px 0px -' + (window.innerHeight - navHeight - 1) + 'px 0px',
+      threshold: 0
     });
 
-    if (inDark && !isDark) {
-      isDark = true;
-      nav.classList.add('nav-dark');
-      logo.src = 'assets/petavue-logo-white.svg';
-    } else if (!inDark && isDark) {
-      isDark = false;
-      nav.classList.remove('nav-dark');
-      logo.src = 'assets/petavue-icon.svg';
-    }
+    darkSections.forEach(function(section) { observer.observe(section); });
   }
 
-  window.addEventListener('scroll', updateNavDark, { passive: true });
-  document.addEventListener('components-loaded', function() {
-    updateNavDark();
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  document.addEventListener('components-loaded', init);
 })();
 
 
@@ -387,10 +406,12 @@ function switchSkillTab(btn) {
   if (!strip || !tabs.length || !panels.length) return;
 
   function updateIndicator(tab) {
-    var x = tab.offsetLeft;
-    var w = tab.offsetWidth;
-    strip.style.setProperty('--cap-active-x', x + 'px');
-    strip.style.setProperty('--cap-active-width', w + 'px');
+    requestAnimationFrame(function() {
+      var x = tab.offsetLeft;
+      var w = tab.offsetWidth;
+      strip.style.setProperty('--cap-active-x', x + 'px');
+      strip.style.setProperty('--cap-active-width', w + 'px');
+    });
   }
 
   // Set initial position
