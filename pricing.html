@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Petavue | Plans built to deliver value from day one</title>
+<meta name="description" content="Simple pricing for GTM teams. Growth at $250/mo and Enterprise from $1,500/mo — unlimited users, dynamic dashboards, Sage Analyst, and verified metrics on every plan.">
+<meta property="og:title" content="Pricing — Petavue | Plans built to deliver value from day one">
+<meta property="og:description" content="Simple pricing for GTM teams. Growth at $250/mo and Enterprise from $1,500/mo — unlimited users, dynamic dashboards, Sage Analyst, and verified metrics on every plan.">
+<meta property="og:image" content="https://www.petavue.com/assets/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pricing.petavue.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing — Petavue | Plans built to deliver value from day one">
+<meta name="twitter:description" content="Simple pricing for GTM teams. Growth at $250/mo and Enterprise from $1,500/mo — unlimited users, dynamic dashboards, Sage Analyst, and verified metrics on every plan.">
+<meta name="twitter:image" content="https://www.petavue.com/assets/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's included in every plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every plan includes unlimited users, unlimited dynamic dashboards, all Skills, verified metrics, Sage Analyst on every dashboard, unlimited recommendation destinations, and unlimited custom workflows. The differences between plans are governance, scale of integrations, and support level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as an integration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An integration is a connection to a system in Petavue's supported catalog — including HubSpot, Salesforce, Pipedrive, Zendesk, Intercom, Gainsight, Mixpanel, Amplitude, Snowflake, BigQuery, LinkedIn Ads, Meta Ads, Google Ads, and more. Growth includes one (CRM or MAP). Enterprise includes a custom integration package sized to your stack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my needs change mid-contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add-ons are stackable and can be added at any time. You can layer additional integrations, AI credits, workflow packs, or recommendation destinations onto any plan. Plan upgrades are pro-rated to your billing cycle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a special requirement for the ROAS skill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — when the ROAS skill is activated, LinkedIn Ads, Meta Ads, or Google Ads must be selected among your included integrations (or added on as an extra integration)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pilot Petavue before committing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we offer a 4-week pilot where you connect a single data source and immediately start seeing value from the Agents. We view pilots as an opportunity to partner closely with teams and generate design partners who help shape where the product goes next."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="style/colorography.min.css">
+<link rel="stylesheet" href="style/global.min.css">
+<link rel="stylesheet" href="style/marketing.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"></noscript>
+
+<!-- Pricing-specific styles -->
+<style>
+/* Navbar: keep solid light on pricing page (no transparency) */
+body .navbar_component {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* --- Pricing Hero — white at top, fading into blue at bottom --- */
+.pricing-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, var(--color-primary-100) 100%);
+  min-height: 80vh;
+  padding: 160px 0 72px;
+  display: flex;
+  align-items: center;
+}
+.pricing-hero-inner {
+  max-width: 900px;
+  text-align: left;
+  width: 100%;
+}
+.pricing-hero-title {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin: 0 0 20px;
+  text-align: left;
+}
+.pricing-hero-title em {
+  font-family: 'Instrument Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: inherit;
+}
+.pricing-hero-sub {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0;
+  text-align: left;
+}
+@media (max-width: 991px) {
+  .pricing-hero {
+    min-height: 60vh;
+    padding: 128px 0 56px;
+  }
+  .pricing-hero-title { font-size: 48px; letter-spacing: -1.4px; }
+}
+@media (max-width: 768px) {
+  .pricing-hero {
+    min-height: 80vh;
+    padding: 104px 0 40px;
+  }
+  .pricing-hero-title { font-size: 36px; letter-spacing: -1px; }
+  .pricing-hero-sub { font-size: 15.5px; line-height: 1.6; }
+}
+
+/* --- Plans --- */
+.pricing-section {
+  padding: 96px 0;
+  background: linear-gradient(180deg, var(--color-primary-100) 0%, #ffffff 40%, #ffffff 100%);
+  position: relative;
+}
+
+/* Right column wrapper — stacks plans grid + note with 24px gap */
+.pricing-plans-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+/* Default centered head (used by Compare + Add-ons) */
+.pricing-section-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.pricing-section-head .section-heading {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.pricing-section-head .section-sub {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Plans section split layout: 40:60 — head left, plans right */
+.pricing-section-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 64px;
+  align-items: start;
+}
+/* Add-ons section uses a 50:50 split instead */
+.pricing-addons-section .pricing-section-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.pricing-section-head--left {
+  text-align: left;
+  align-items: flex-start;
+  margin-bottom: 0;
+  position: sticky;
+  top: 120px;
+}
+/* Left-aligned heads keep their section-label left-aligned regardless of section */
+.pricing-section-head--left .section-label {
+  justify-content: flex-start;
+}
+.pricing-section-head--left .section-heading,
+.pricing-section-head--left .section-sub {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+.pricing-section-head--left .section-sub {
+  margin-bottom: 0;
+}
+/* Section labels span full width in pricing page heads */
+.pricing-section .section-label,
+.pricing-compare-section .section-label,
+.pricing-addons-section .section-label {
+  width: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+}
+.pricing-compare-section .pricing-section-head:not(.pricing-section-head--left) .section-label,
+.pricing-addons-section .pricing-section-head:not(.pricing-section-head--left) .section-label {
+  justify-content: center;
+}
+/* Always left-align the label when the head uses the --left modifier, regardless of section */
+.pricing-section .pricing-section-head--left .section-label,
+.pricing-compare-section .pricing-section-head--left .section-label,
+.pricing-addons-section .pricing-section-head--left .section-label {
+  justify-content: flex-start;
+}
+
+.pricing-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  align-items: start;
+}
+.pricing-plan {
+  background: #fff;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: 20px;
+  padding: 0;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Subtle default shadow on every card */
+  box-shadow:
+    0 8px 24px -10px rgba(15, 22, 36, 0.10),
+    0 2px 6px -2px rgba(15, 22, 36, 0.04);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.pricing-plan:hover {
+  border-color: var(--color-neutral-200);
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 36px -12px rgba(15, 22, 36, 0.14),
+    0 4px 10px -3px rgba(15, 22, 36, 0.06);
+}
+.pricing-plan--featured {
+  margin: -16px auto 0;
+  /* Bigger shadow biased to the LEFT so it falls onto the Growth card */
+  box-shadow:
+    -24px 28px 60px -16px rgba(15, 22, 36, 0.20),
+    0 32px 80px -12px rgba(15, 22, 36, 0.18),
+    0 8px 20px -4px rgba(15, 22, 36, 0.08);
+  z-index: 2;
+}
+.pricing-plan--featured:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    -28px 32px 70px -14px rgba(15, 22, 36, 0.24),
+    0 36px 90px -12px rgba(15, 22, 36, 0.22),
+    0 10px 24px -4px rgba(15, 22, 36, 0.10);
+  border-color: var(--color-primary-500);
+}
+
+/* Recommended badge — only on featured card, appears on hover */
+.pricing-plan-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: var(--color-primary-500);
+  color: #fff;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 20%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.pricing-plan--featured:hover .pricing-plan-badge {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* Card header — colored panel containing name + price + desc */
+.pricing-plan-header {
+  background: var(--color-primary-50);
+  padding: 24px;
+  margin: 0;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Card body — wraps CTA + features with padding */
+.pricing-plan-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.pricing-plan-name {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-transform: none;
+}
+.pricing-plan-prefix {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.pricing-plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-family: 'Instrument Sans', sans-serif;
+}
+.pricing-plan-price .num {
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, #825CDE 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+}
+.pricing-plan-price .unit {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.pricing-plan-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+  min-height: 0;
+}
+.pricing-plan-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.4;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.pricing-plan-cta--primary {
+  background: var(--color-primary-500);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pricing-plan-cta--primary:hover {
+  background: var(--color-primary-800);
+  gap: 10px;
+}
+.pricing-plan-cta--secondary {
+  background: transparent;
+  color: var(--color-primary-500);
+  border: 1px solid var(--color-primary-500);
+}
+.pricing-plan-cta--secondary:hover {
+  background: var(--color-primary-100);
+  color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  gap: 10px;
+}
+.pricing-plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+.pricing-plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-neutral-800);
+  line-height: 1.55;
+}
+.pricing-plan-features li svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  color: var(--color-primary-500);
+}
+.pricing-plan-features .feature-em {
+  font-weight: 600;
+  color: var(--text);
+}
+.pricing-plans-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 16px;
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-100);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--color-neutral-600);
+  line-height: 1.6;
+}
+.pricing-plans-note svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary-500);
+  margin-top: 1px;
+}
+.pricing-plans-note strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* --- Compare table --- */
+.pricing-compare-section {
+  background: var(--color-neutral-50);
+  background-image: radial-gradient(ellipse at 50% -20%, rgba(54, 97, 237, 0.22) 0%, rgba(54, 97, 237, 0.10) 22%, rgba(54, 97, 237, 0.04) 42%, transparent 62%);
+  padding: 96px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  /* NOTE: no overflow:hidden here — it would break the sticky thead inside */
+}
+.pricing-compare-inner {
+  background: #ffffff;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: 12px;
+  padding: 0;
+  margin-top: 40px;
+  /* overflow visible on desktop so thead sticky can work relative to body scroll */
+  overflow: visible;
+  box-shadow:
+    0 18px 48px -20px rgba(54, 97, 237, 0.18),
+    0 6px 16px -6px rgba(15, 22, 36, 0.08);
+}
+.pricing-compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Plan column headers — sticky as user scrolls through the table */
+.pricing-compare-table thead th {
+  position: sticky;
+  top: 80px;
+  z-index: 3;
+  background: #ffffff;
+  text-align: left;
+  padding: 24px 24px 20px;
+  font-weight: 400;
+  color: var(--text);
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+.pricing-compare-table thead th.compare-th-label {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  color: var(--text);
+  vertical-align: middle;
+  text-transform: none;
+}
+.pricing-compare-table thead th:first-child { padding-left: 16px; }
+.compare-plan-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 220px;
+}
+.compare-plan-name {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: var(--text);
+  line-height: 1.2;
+}
+.compare-plan-price {
+  font-family: 'Instrument Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.compare-plan-price .num {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, #825CDE 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+  margin-right: 2px;
+}
+.compare-plan-price .prefix {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-right: 4px;
+}
+.compare-plan-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: all 0.2s;
+  margin-top: 6px;
+  width: fit-content;
+}
+.compare-plan-cta--primary {
+  background: var(--color-primary-500);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.compare-plan-cta--primary:hover { background: var(--color-primary-800); gap: 10px; }
+.compare-plan-cta--secondary {
+  background: transparent;
+  color: var(--color-primary-500);
+  border: 1px solid var(--color-primary-500);
+}
+.compare-plan-cta--secondary:hover {
+  background: var(--color-primary-100);
+  color: var(--color-primary-500);
+  gap: 10px;
+}
+
+/* Feature rows — white background, sit inside grey container */
+.pricing-compare-table tbody td {
+  padding: 16px 24px;
+  height: 100px;
+  border-top: 1px solid var(--color-neutral-100);
+  font-size: 14px;
+  color: var(--color-neutral-700);
+  vertical-align: middle;
+  background: #fff;
+}
+/* Group label rows stay compact — override row min-height */
+.pricing-compare-table .group-row td { height: auto; }
+.pricing-compare-table tbody td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Group section label rows — match regular row padding, with top border */
+.pricing-compare-table .group-row td {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-neutral-100);
+  font-family: 'Geist Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  background: var(--color-neutral-50);
+}
+
+/* Circular green check badge */
+.pricing-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #22C55E;
+  color: #fff;
+}
+.pricing-check svg { width: 14px; height: 14px; }
+.pricing-dash {
+  display: inline-block;
+  color: var(--color-neutral-300);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* --- Add-ons --- */
+.pricing-addons-section {
+  background: #ffffff;
+  padding: 96px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Addon cards grid — fills right column; cards flex to column width */
+.pricing-addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Card: illustration on top + body below (matches reference design) */
+.pricing-addon {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 24px -10px rgba(15, 22, 36, 0.10),
+    0 2px 6px -2px rgba(15, 22, 36, 0.04);
+}
+
+/* Top illustration panel */
+.pricing-addon-illustration {
+  position: relative;
+  height: 180px;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 30%, rgba(130, 92, 222, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 80% 60%, rgba(54, 97, 237, 0.28) 0%, transparent 60%),
+    linear-gradient(135deg, var(--color-primary-50) 0%, #EDE8FE 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pricing-addon-illustration img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Body */
+.pricing-addon-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.pricing-addon-head {
+  margin-bottom: 2px;
+}
+.pricing-addon-name {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  margin: 0;
+}
+.pricing-addon-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+.pricing-addon-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 12px;
+  font-family: 'Instrument Sans', sans-serif;
+}
+.pricing-addon-price-num {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, #825CDE 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+}
+.pricing-addon-price-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.pricing-addon-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-neutral-100);
+}
+.pricing-addon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pricing-addon-tag svg {
+  width: 12px;
+  height: 12px;
+}
+.pricing-addon-tag--trial {
+  background: var(--color-primary-50);
+  color: var(--color-primary-500);
+  border: 1px solid rgba(54, 97, 237, 0.15);
+}
+.pricing-addon-tag--plan {
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-100);
+}
+.pricing-addon-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* --- FAQ override: white background on pricing page --- */
+.pricing-page .mktg-faq-section,
+body .mktg-faq-section { background: #ffffff; }
+
+/* Responsive — Tablet (≤991px) */
+@media (max-width: 991px) {
+  .pricing-section,
+  .pricing-compare-section,
+  .pricing-addons-section { padding: 72px 0; }
+
+  /* CTA section — ensure inner padding doesn't disappear on tablet */
+  .mktg-cta-inner { padding: 40px 32px; }
+  .mktg-cta-content { padding: 0; }
+
+  .pricing-section-head { margin-bottom: 40px; }
+
+  /* Stack head above plans on tablet */
+  .pricing-section-layout,
+  .pricing-addons-section .pricing-section-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pricing-section-head--left {
+    position: static;
+    margin-bottom: 0;
+  }
+
+  .pricing-plans-grid { gap: 20px; }
+  /* Drop the offset tilt on smaller widths — but keep directional shadow */
+  .pricing-plan--featured {
+    margin: 0 auto;
+    box-shadow: 0 24px 60px -28px rgba(54, 97, 237, 0.35);
+  }
+
+  .pricing-plan-price .num { font-size: 48px; letter-spacing: -1.6px; }
+
+  .pricing-compare-table thead th,
+  .pricing-compare-table tbody td { padding: 14px 18px; font-size: 13.5px; }
+  /* Narrower table headers on tablet */
+  .compare-plan-header { min-width: 180px; gap: 8px; }
+  .compare-plan-name { font-size: 18px; }
+  .compare-plan-price .num { font-size: 22px; }
+  .pricing-compare-table .compare-th-label { font-size: 22px; padding: 20px; }
+}
+
+/* Responsive — Mobile (≤768px) */
+@media (max-width: 768px) {
+  .pricing-section,
+  .pricing-compare-section,
+  .pricing-addons-section { padding: 56px 0; }
+
+  /* CTA section — tighter inner padding on phones */
+  .mktg-cta-inner { padding: 32px 24px; }
+
+  /* Left-align every section head on mobile */
+  .pricing-section-head {
+    text-align: left;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .pricing-section-head .section-heading,
+  .pricing-section-head .section-sub {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .pricing-section-head .section-label,
+  .pricing-compare-section .pricing-section-head:not(.pricing-section-head--left) .section-label,
+  .pricing-addons-section .pricing-section-head:not(.pricing-section-head--left) .section-label {
+    justify-content: flex-start;
+  }
+
+  .pricing-section-layout { gap: 32px; }
+
+  /* --- Plans --- */
+  .pricing-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pricing-plans-right { gap: 20px; }
+  .pricing-plans-note {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    padding: 12px 14px;
+  }
+
+  .pricing-plan { border-radius: 16px; max-width: 100%; }
+  .pricing-plan-header { padding: 20px; border-radius: 16px 16px 0 0; }
+  .pricing-plan-body { padding: 20px; }
+  .pricing-plan-name { font-size: 18px; margin-bottom: 12px; }
+  .pricing-plan-price .num { font-size: 44px; letter-spacing: -1.4px; }
+  .pricing-plan-price .unit { font-size: 14px; }
+  .pricing-plan-desc { font-size: 13.5px; }
+  .pricing-plan-features li { font-size: 13.5px; padding: 6px 0; }
+  .pricing-plan-features li svg { width: 18px; height: 18px; }
+  /* Better touch target on CTAs */
+  .pricing-plan-cta { margin-bottom: 20px; padding: 11px 16px; font-size: 13.5px; min-height: 42px; }
+
+  /* Show the Recommended badge by default on mobile (no hover to trigger it)
+     and keep the featured card's primary border visible */
+  .pricing-plan-badge {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  .pricing-plan--featured { border-color: var(--color-primary-500); }
+
+  /* --- Compare table --- */
+  .pricing-compare-inner {
+    margin-top: 24px;
+    border-radius: 12px;
+    padding: 0;
+    overflow-x: auto;
+    /* Gentle scroll hint on the right edge */
+    background:
+      linear-gradient(90deg, #ffffff 70%, rgba(255,255,255,0)) 0 0 / 40px 100% no-repeat,
+      linear-gradient(-90deg, #ffffff 70%, rgba(255,255,255,0)) 100% 0 / 40px 100% no-repeat,
+      #ffffff;
+  }
+  /* Disable sticky thead on mobile (horizontal-scroll container would break it anyway) */
+  .pricing-compare-table thead th {
+    position: static;
+    top: auto;
+    padding: 18px 14px;
+  }
+  /* Table gets horizontal scroll for dense content on narrow phones */
+  .pricing-compare-table { min-width: 520px; }
+  .pricing-compare-table tbody td { padding: 12px 14px; font-size: 13px; }
+  .pricing-compare-table .group-row td {
+    font-size: 10.5px;
+    padding: 14px 14px 10px;
+    letter-spacing: 0.1em;
+  }
+  /* Compact plan-header cells inside the table — keep enough room for full CTA text */
+  .compare-plan-header { min-width: 180px; gap: 6px; }
+  .compare-plan-name { font-size: 16px; }
+  .compare-plan-price { font-size: 12px; }
+  .compare-plan-price .num { font-size: 20px; letter-spacing: -0.4px; }
+  .compare-plan-price .prefix { font-size: 11px; }
+  .compare-plan-cta {
+    padding: 8px 14px;
+    font-size: 12.5px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .pricing-compare-table .compare-th-label { font-size: 20px; padding: 18px 14px; }
+  .pricing-check { width: 20px; height: 20px; }
+  .pricing-check svg { width: 12px; height: 12px; }
+
+  /* --- Add-ons — new card structure --- */
+  .pricing-addon { border-radius: 14px; }
+  .pricing-addon-illustration { height: 160px; }
+  .pricing-addon-body { padding: 18px 20px 20px; gap: 4px; }
+  .pricing-addon-name { font-size: 17px; }
+  .pricing-addon-desc { font-size: 13px; line-height: 1.6; }
+  .pricing-addon-price { margin-top: 10px; }
+  .pricing-addon-price-num { font-size: 30px; letter-spacing: -0.8px; }
+  .pricing-addon-price-unit { font-size: 12.5px; }
+  .pricing-addon-foot { margin-top: 12px; padding-top: 12px; }
+  .pricing-addon-tag { font-size: 11.5px; padding: 4px 9px; }
+}
+
+/* Responsive — Small mobile (≤480px) */
+@media (max-width: 480px) {
+  .pricing-hero { padding: 96px 0 32px; }
+  .pricing-hero-title { font-size: 30px; letter-spacing: -0.6px; }
+  .pricing-hero-sub { font-size: 14.5px; }
+
+  .pricing-section,
+  .pricing-compare-section,
+  .pricing-addons-section { padding: 48px 0; }
+  .pricing-section-head { margin-bottom: 24px; }
+
+  .pricing-plan-header { padding: 18px; }
+  .pricing-plan-body { padding: 18px; }
+  .pricing-plan-price .num { font-size: 40px; }
+
+  /* Compare table: tighter cells for tiny phones */
+  .pricing-compare-table tbody td,
+  .pricing-compare-table thead th { padding: 10px 12px; font-size: 12.5px; }
+  .pricing-compare-table .compare-th-label { font-size: 18px; padding: 14px 12px; }
+
+  /* Addon card compact */
+  .pricing-addon-illustration { height: 140px; }
+  .pricing-addon-body { padding: 16px 18px 18px; }
+  .pricing-addon-price-num { font-size: 28px; }
+  .pricing-addon-foot { gap: 5px; }
+  .pricing-addon-tag { font-size: 11px; padding: 4px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR (loaded by components.js) -->
+<div id="navbar-placeholder"></div>
+
+<!-- HERO -->
+<section class="pricing-hero" id="pricing-hero">
+  <div class="padding-global"><div class="container-large">
+    <div class="pricing-hero-inner">
+      <h1 class="pricing-hero-title">Pricing built to <em><span style="color: var(--color-primary-500);">deliver value</span> from day one.</em></h1>
+      <p class="pricing-hero-sub">Start with the plan that fits your team, then add integrations, skills, and destinations as you scale — no rebuilds, no rip-and-replace.</p>
+    </div>
+  </div></div>
+</section>
+
+<!-- PLANS -->
+<section class="pricing-section" id="plans" data-reveal-parent>
+  <div class="padding-global"><div class="container-large">
+    <div class="pricing-section-layout">
+    <div class="pricing-section-head pricing-section-head--left">
+      <div class="section-label reveal-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3661ed" viewBox="0 0 256 256"><path d="M232,96v96a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V96Z" opacity="0.2"></path><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64ZM32,192V104H224l0,88Zm176-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"></path></svg>Pricing</div>
+      <h2 class="section-heading reveal-on-scroll">Two plans. <span style="color: var(--color-primary-500);">One verified source of truth.</span></h2>
+      <p class="section-sub reveal-on-scroll">Both plans include unlimited users, dynamic dashboards, Sage Analyst, and verified metrics. The difference is scale, governance, and support.</p>
+    </div>
+
+    <div class="pricing-plans-right">
+    <div class="pricing-plans-grid">
+    <!-- Growth -->
+    <div class="pricing-plan reveal-on-scroll">
+      <div class="pricing-plan-header">
+        <div class="pricing-plan-name">Growth</div>
+        <div class="pricing-plan-price">
+          <span class="num">$250</span>
+          <span class="unit">/ month</span>
+        </div>
+        <p class="pricing-plan-desc">For lean GTM teams ready to see value quickly with Agents built on pre-configured Skills.</p>
+      </div>
+      <div class="pricing-plan-body">
+      <a href="https://www.petavue.com/book-a-demo" class="pricing-plan-cta pricing-plan-cta--secondary">Start with Growth <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="12" height="12"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></a>
+      <ul class="pricing-plan-features">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M168,144a40,40,0,1,1-40-40A40,40,0,0,1,168,144ZM64,56A32,32,0,1,0,96,88,32,32,0,0,0,64,56Zm128,0a32,32,0,1,0,32,32A32,32,0,0,0,192,56Z" opacity="0.2"></path><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1,0-16,24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.85,8,57,57,0,0,0-98.15,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"></path></svg>
+          <span><span class="feature-em">Unlimited users</span> &amp; dynamic dashboards</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M80,176a32,32,0,1,1-32-32A32,32,0,0,1,80,176Z" opacity="0.2"></path><path d="M245.66,74.34l-32-32a8,8,0,0,0-11.32,11.32L220.69,72H208c-49.33,0-61.05,28.12-71.38,52.92-9.38,22.51-16.92,40.59-49.48,42.84a40,40,0,1,0,.1,16c43.26-2.65,54.34-29.15,64.14-52.69C161.41,107,169.33,88,208,88h12.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,74.34ZM48,200a24,24,0,1,1,24-24A24,24,0,0,1,48,200Z"></path></svg>
+          <span>Skills &amp; verified metrics included</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H56A24,24,0,0,0,32,80V192a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56ZM164,184H92a20,20,0,0,1,0-40h72a20,20,0,0,1,0,40Z" opacity="0.2"></path><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Zm4,28H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24Z"></path></svg>
+          <span>Sage Analyst on every dashboard</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M232,56V200H160a32,32,0,0,0-32,32V88a32,32,0,0,1,32-32Z" opacity="0.2"></path><path d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"></path></svg>
+          <span>Unlimited recommendation destinations &amp; custom workflows</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104v48H48V104Z" opacity="0.2"></path><path d="M224,96H184V56a8,8,0,0,0-8-8H56V40a8,8,0,0,0-16,0V216a8,8,0,0,0,16,0v-8h88a8,8,0,0,0,8-8V160h72a8,8,0,0,0,8-8V104A8,8,0,0,0,224,96ZM168,64V96H56V64ZM136,192H56V160h80Zm80-48H56V112H216Z"></path></svg>
+          <span><span class="feature-em">1 integration included</span> (CRM or MAP)</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,48v80H40.87A146.29,146.29,0,0,1,40,112V56a8,8,0,0,1,8-8Zm0,80V232s78.06-21.3,87.13-104Z" opacity="0.2"></path><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40ZM120,220.55a130.85,130.85,0,0,1-30.93-18.74c-21.15-17.3-34.2-39.37-39-65.81H120ZM120,120H48.23c-.15-2.63-.23-5.29-.23-8l0-56h72Zm47.4,81.42A131.31,131.31,0,0,1,136,220.53V136h69.91C201.16,162.24,188.27,184.18,167.4,201.42ZM208,112c0,2.71-.08,5.37-.23,8H136V56h72Z"></path></svg>
+          <span>SOC 2 Type II compliance</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+          <span>99.9% uptime SLA</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+          <span>24/7 email support</span>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="pricing-plan pricing-plan--featured reveal-on-scroll">
+      <span class="pricing-plan-badge">Recommended</span>
+      <div class="pricing-plan-header">
+        <div class="pricing-plan-name">Enterprise</div>
+        <div class="pricing-plan-prefix">Starting at</div>
+        <div class="pricing-plan-price">
+          <span class="num">$1,500</span>
+          <span class="unit">/ month</span>
+        </div>
+        <p class="pricing-plan-desc">For GTM orgs that need the right data infrastructure and proactive recommendations to scale.</p>
+      </div>
+      <div class="pricing-plan-body">
+      <a href="https://www.petavue.com/book-a-demo" class="pricing-plan-cta pricing-plan-cta--primary">Talk to sales <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="12" height="12"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></a>
+      <ul class="pricing-plan-features">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+          <span><span class="feature-em">Everything in Growth</span>, plus:</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104v48H48V104Z" opacity="0.2"></path><path d="M224,96H184V56a8,8,0,0,0-8-8H56V40a8,8,0,0,0-16,0V216a8,8,0,0,0,16,0v-8h88a8,8,0,0,0,8-8V160h72a8,8,0,0,0,8-8V104A8,8,0,0,0,224,96ZM168,64V96H56V64ZM136,192H56V160h80Zm80-48H56V112H216Z"></path></svg>
+          <span><span class="feature-em">Custom integrations</span> tailored to your stack</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,48v80H40.87A146.29,146.29,0,0,1,40,112V56a8,8,0,0,1,8-8Zm0,80V232s78.06-21.3,87.13-104Z" opacity="0.2"></path><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40ZM120,220.55a130.85,130.85,0,0,1-30.93-18.74c-21.15-17.3-34.2-39.37-39-65.81H120ZM120,120H48.23c-.15-2.63-.23-5.29-.23-8l0-56h72Zm47.4,81.42A131.31,131.31,0,0,1,136,220.53V136h69.91C201.16,162.24,188.27,184.18,167.4,201.42ZM208,112c0,2.71-.08,5.37-.23,8H136V56h72Z"></path></svg>
+          <span>Single sign-on (SSO)</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+          <span><span class="feature-em">99.9% uptime SLA</span></span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+          <span>24/7 support with named contact</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40V200a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V40Z" opacity="0.2"></path><path d="M168,128a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,128Zm-8,24H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16ZM216,40V200a32,32,0,0,1-32,32H72a32,32,0,0,1-32-32V40a8,8,0,0,1,8-8H72V24a8,8,0,0,1,16,0v8h32V24a8,8,0,0,1,16,0v8h32V24a8,8,0,0,1,16,0v8h24A8,8,0,0,1,216,40Zm-16,8H184v8a8,8,0,0,1-16,0V48H136v8a8,8,0,0,1-16,0V48H88v8a8,8,0,0,1-16,0V48H56V200a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16Z"></path></svg>
+          <span>Quarterly business reviews</span>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H56A24,24,0,0,0,32,80V192a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56ZM164,184H92a20,20,0,0,1,0-40h72a20,20,0,0,1,0,40Z" opacity="0.2"></path><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Zm4,28H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24Z"></path></svg>
+          <span>Dedicated implementation &amp; onboarding</span>
+        </li>
+      </ul>
+      </div>
+    </div>
+    </div>
+
+    <p class="pricing-plans-note">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>
+      <span><strong>Note:</strong> When the ROAS skill is activated, LinkedIn Ads, Meta Ads, or Google Ads must be selected among your included integrations (or added on).</span>
+    </p>
+    </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- COMPARE -->
+<section class="pricing-compare-section" id="compare" data-reveal-parent>
+  <div class="padding-global"><div class="container-large">
+    <div class="pricing-section-head">
+      <div class="section-label reveal-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3661ed" viewBox="0 0 256 256"><path d="M224,64V192a8,8,0,0,1-8,8H128V56h88A8,8,0,0,1,224,64Z" opacity="0.2"></path><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM112,192H32V160h80Zm0-48H32V112h80Zm0-48H32V64h80ZM224,192H128V64h96Z"></path></svg>Compare</div>
+      <h2 class="section-heading reveal-on-scroll">Every capability, <span style="color: var(--color-primary-500);">side by side.</span></h2>
+      <p class="section-sub reveal-on-scroll">A full breakdown of what's in each plan — so you know exactly what you're getting.</p>
+    </div>
+
+    <div class="pricing-compare-inner reveal-on-scroll">
+      <table class="pricing-compare-table">
+        <thead>
+          <tr>
+            <th class="compare-th-label">Plans</th>
+            <th>
+              <div class="compare-plan-header">
+                <div class="compare-plan-name">Growth</div>
+                <div class="compare-plan-price"><span class="num">$250</span> / month</div>
+                <a href="https://www.petavue.com/book-a-demo" class="compare-plan-cta compare-plan-cta--secondary">Start with Growth <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="12" height="12"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></a>
+              </div>
+            </th>
+            <th>
+              <div class="compare-plan-header">
+                <div class="compare-plan-name">Enterprise</div>
+                <div class="compare-plan-price"><span class="prefix">Starting at</span><span class="num">$1,500</span> / month</div>
+                <a href="https://www.petavue.com/book-a-demo" class="compare-plan-cta compare-plan-cta--primary">Talk to sales <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="12" height="12"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></a>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="3">Core platform</td></tr>
+          <tr><td>Users</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Dynamic dashboards &amp; editing</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Skills</td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>Verified metrics</td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>Sage Analyst on dashboards</td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>Recommendation destinations</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Custom workflows</td><td>Unlimited</td><td>Unlimited</td></tr>
+
+          <tr class="group-row"><td colspan="3">Integrations &amp; data</td></tr>
+          <tr><td>Integrations included</td><td>1 (CRM or MAP)</td><td>Custom</td></tr>
+          <tr><td>Custom data sync</td><td>Every 24 hours</td><td>Custom managed</td></tr>
+
+          <tr class="group-row"><td colspan="3">Governance</td></tr>
+          <tr><td>SOC 2 Type II</td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>Role-based access control</td>
+            <td><span class="pricing-dash">—</span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>SSO</td>
+            <td><span class="pricing-dash">—</span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+
+          <tr class="group-row"><td colspan="3">Support</td></tr>
+          <tr><td>Email support</td><td>24/7</td><td>24/7</td></tr>
+          <tr><td>Quarterly business reviews</td>
+            <td><span class="pricing-dash">—</span></td>
+            <td><span class="pricing-check"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td>
+          </tr>
+          <tr><td>Uptime SLA</td><td>99.9%</td><td>99.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div></div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="pricing-addons-section" id="addons" data-reveal-parent>
+  <div class="padding-global"><div class="container-large">
+    <div class="pricing-section-layout">
+      <div class="pricing-section-head pricing-section-head--left">
+        <div class="section-label reveal-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3661ed" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-96a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V128H96a8,8,0,0,1,0-16h24V88a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,120Z"></path></svg>Add-ons</div>
+        <h2 class="section-heading reveal-on-scroll">Stackable on <span style="color: var(--color-primary-500);">any plan.</span></h2>
+        <p class="section-sub reveal-on-scroll">Extras are charged in addition to the base plan price. Add what you need, when you need it.</p>
+      </div>
+
+      <div class="pricing-addons-grid">
+        <div class="pricing-addon reveal-on-scroll">
+          <div class="pricing-addon-illustration" aria-hidden="true">
+            <img src="assets/pricing-illustration.svg" alt="" loading="lazy">
+          </div>
+          <div class="pricing-addon-body">
+            <div class="pricing-addon-head">
+              <h3 class="pricing-addon-name">Additional integrations</h3>
+            </div>
+            <p class="pricing-addon-desc">Connect any system from Petavue's supported catalog — HubSpot, Salesforce, Pipedrive, Zendesk, Intercom, Snowflake, BigQuery, LinkedIn Ads, Meta Ads, Google Ads, and more.</p>
+            <div class="pricing-addon-price">
+              <span class="pricing-addon-price-num">$150</span>
+              <span class="pricing-addon-price-unit">/ month each</span>
+            </div>
+            <div class="pricing-addon-foot">
+              <span class="pricing-addon-tag pricing-addon-tag--trial">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+                2-week free trial
+              </span>
+              <span class="pricing-addon-tag pricing-addon-tag--plan">
+                <span class="pricing-addon-tag-dot" aria-hidden="true"></span>
+                Any plan
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="mktg-faq-section" id="faq" data-reveal-parent>
+  <div class="padding-global"><div class="container-large">
+    <div class="mktg-faq-layout">
+
+      <!-- Left column -->
+      <div class="mktg-faq-left">
+        <div class="section-label reveal-on-scroll"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3661ed" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>FAQ</div>
+        <h2 class="section-heading reveal-on-scroll">Frequently asked questions</h2>
+        <p class="mktg-faq-contact reveal-on-scroll">For any further questions, send us a message at <a href="mailto:sales@petavue.com">sales@petavue.com</a></p>
+      </div>
+
+      <!-- Right column — accordion -->
+      <div class="mktg-faq-list">
+
+        <div class="mktg-faq-item reveal-on-scroll" data-faq>
+          <button class="mktg-faq-question" aria-expanded="false">
+            <span>What's included in every plan?</span>
+            <div class="mktg-faq-icon"><svg class="faq-icon-plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path></svg><svg class="faq-icon-minus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></div>
+          </button>
+          <div class="mktg-faq-answer">
+            <p>Every plan includes unlimited users, unlimited dynamic dashboards, all Skills, verified metrics, Sage Analyst on every dashboard, unlimited recommendation destinations, and unlimited custom workflows. The differences between plans are governance, scale of integrations, and support level.</p>
+          </div>
+        </div>
+
+        <div class="mktg-faq-item reveal-on-scroll" data-faq>
+          <button class="mktg-faq-question" aria-expanded="false">
+            <span>What counts as an integration?</span>
+            <div class="mktg-faq-icon"><svg class="faq-icon-plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path></svg><svg class="faq-icon-minus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></div>
+          </button>
+          <div class="mktg-faq-answer">
+            <p>An integration is a connection to a system in Petavue's supported catalog — including HubSpot, Salesforce, Pipedrive, Zendesk, Intercom, Gainsight, Mixpanel, Amplitude, Snowflake, BigQuery, LinkedIn Ads, Meta Ads, Google Ads, and more. Growth includes one (CRM or MAP). Enterprise includes a custom integration package sized to your stack.</p>
+          </div>
+        </div>
+
+        <div class="mktg-faq-item reveal-on-scroll" data-faq>
+          <button class="mktg-faq-question" aria-expanded="false">
+            <span>What if my needs change mid-contract?</span>
+            <div class="mktg-faq-icon"><svg class="faq-icon-plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path></svg><svg class="faq-icon-minus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></div>
+          </button>
+          <div class="mktg-faq-answer">
+            <p>Add-ons are stackable and can be added at any time. You can layer additional integrations, AI credits, workflow packs, or recommendation destinations onto any plan. Plan upgrades are pro-rated to your billing cycle.</p>
+          </div>
+        </div>
+
+        <div class="mktg-faq-item reveal-on-scroll" data-faq>
+          <button class="mktg-faq-question" aria-expanded="false">
+            <span>Is there a special requirement for the ROAS skill?</span>
+            <div class="mktg-faq-icon"><svg class="faq-icon-plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path></svg><svg class="faq-icon-minus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></div>
+          </button>
+          <div class="mktg-faq-answer">
+            <p>Yes — when the ROAS skill is activated, LinkedIn Ads, Meta Ads, or Google Ads must be selected among your included integrations (or added on as an extra integration).</p>
+          </div>
+        </div>
+
+        <div class="mktg-faq-item reveal-on-scroll" data-faq>
+          <button class="mktg-faq-question" aria-expanded="false">
+            <span>Can I pilot Petavue before committing?</span>
+            <div class="mktg-faq-icon"><svg class="faq-icon-plus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path></svg><svg class="faq-icon-minus" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></div>
+          </button>
+          <div class="mktg-faq-answer">
+            <p>Yes — we offer a 4-week pilot where you connect a single data source and immediately start seeing value from the Agents. We view pilots as an opportunity to partner closely with teams and generate design partners who help shape where the product goes next.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="mktg-cta-section">
+  <div class="padding-global"><div class="container-large mktg-cta-dotbg">
+    <div class="mktg-cta-inner">
+      <div class="mktg-cta-content">
+        <h2 class="mktg-cta-heading">Trade Excel gymnastics for <span>numbers you can defend.</span></h2>
+        <p class="mktg-cta-sub">Book a demo and we'll walk you through what verified metrics, Sage, and continuous monitoring look like with your specific stack.</p>
+        <a href="https://www.petavue.com/book-a-demo" class="btn-demo mktg-cta-btn">
+          <span>Book a Demo</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16" height="16"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg>
+        </a>
+      </div>
+      <div class="mktg-cta-graphic">
+        <img src="assets/marketing/cta-graphic.svg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- FOOTER (loaded by components.js) -->
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
