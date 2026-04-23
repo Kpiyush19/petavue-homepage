@@ -561,7 +561,7 @@
 
 /* Body text */
 .mktg-ill-card-body { padding: 12px 24px 24px; text-align: left; background: transparent; }
-.mktg-ill-card-title { font-family: 'Instrument Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--color-primary-500); margin-bottom: 8px; line-height: normal; letter-spacing: 0.02em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: flex-start; gap: 8px; }
+.mktg-ill-card-title { font-family: 'Instrument Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--color-primary-500); margin-bottom: 8px; line-height: normal; letter-spacing: 0.02em; text-transform: uppercase; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .mktg-ill-card-title svg { flex-shrink: 0; }
 .mktg-ill-card-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--color-neutral-900); line-height: 1.65; }
 
@@ -1293,6 +1293,26 @@
   cursor: pointer;
 }
 .video-wrap video { display: none !important; }
+/* Playing state — keep video inline, release any aspect-ratio / overflow locks
+   so the video (incl. native controls) is never clipped */
+.video-wrap.is-playing {
+  cursor: default;
+  aspect-ratio: auto !important;
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+.video-wrap.is-playing video {
+  display: block !important;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: inherit;
+}
+.video-wrap.is-playing .video-thumb,
+.video-wrap.is-playing .hero-watch-btn,
+.video-wrap.is-playing .video-watch-icon-btn { display: none !important; }
 .video-wrap .video-thumb {
   display: block;
   width: 100%;
@@ -1900,7 +1920,8 @@ body.video-lightbox-open { overflow: hidden; }
 }
 .mktg-runs-card .runs-card-header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 .mktg-runs-card svg {
@@ -1914,8 +1935,9 @@ body.video-lightbox-open { overflow: hidden; }
   color: var(--color-primary-500);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 .mktg-runs-card h3 svg { flex-shrink: 0; }
@@ -2788,9 +2810,10 @@ body.video-lightbox-open { overflow: hidden; }
   position: relative;
 }
 .mktg-faq-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
   gap: 48px;
-  align-items: flex-start;
+  align-items: start;
   max-width: 80rem;
   margin: 0 auto;
   padding: 0;
@@ -2892,7 +2915,7 @@ body.video-lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 768px) {
-  .mktg-faq-layout { flex-direction: column; gap: 48px; }
+  .mktg-faq-layout { grid-template-columns: 1fr; gap: 48px; }
   .mktg-faq-left { position: static; }
   .mktg-faq-title { font-size: 48px; line-height: 56px; }
   .mktg-faq-question { font-size: 16px; line-height: 24px; }
@@ -3199,7 +3222,7 @@ body.video-lightbox-open { overflow: hidden; }
   .mktg-ill-cards { grid-template-columns: 1fr; gap: 24px; }
 
   /* FAQ */
-  .mktg-faq-layout { flex-direction: column; gap: 32px; }
+  .mktg-faq-layout { grid-template-columns: 1fr; gap: 32px; }
   .mktg-faq-left { position: static; min-width: auto; }
 
   /* CTA — left align */

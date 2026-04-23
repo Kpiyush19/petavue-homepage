@@ -425,10 +425,17 @@ function switchSkillTab(btn) {
       panels.forEach(function(p) { p.classList.remove('is-active'); });
       tab.classList.add('is-active');
       updateIndicator(tab);
-      // Pause and reset all cap videos
+      // Pause and reset all cap videos, restore thumbnail state
       panels.forEach(function(p) {
         var v = p.querySelector('video');
-        if (v) { v.pause(); v.currentTime = 0; }
+        if (v) {
+          v.pause();
+          v.currentTime = 0;
+          v.removeAttribute('controls');
+          v.muted = true;
+        }
+        var w = p.querySelector('.video-wrap');
+        if (w) w.classList.remove('is-playing');
       });
       var panel = document.querySelector('.cap-tab-panel[data-cap-panel="' + target + '"]');
       if (panel) {
@@ -483,8 +490,21 @@ function switchSkillTab(btn) {
     if (!video) return;
 
     wrap.addEventListener('click', function(e) {
+      // Once playing, native controls handle everything — let clicks pass through
+      if (wrap.classList.contains('is-playing')) return;
+      // If the click landed on the <video> element itself (e.g. native controls
+      // territory) do not start a fresh play cycle.
+      if (e.target === video || video.contains(e.target)) return;
       e.preventDefault();
-      openLightbox(video);
+      var wasLazy = loadLazySources(video);
+      video.setAttribute('controls', '');
+      video.muted = false;
+      wrap.classList.add('is-playing');
+      var tryPlay = function() { video.play().catch(function() {}); };
+      if (wasLazy) {
+        video.addEventListener('loadeddata', tryPlay, { once: true });
+      }
+      tryPlay();
     });
 
     observer.observe(wrap);

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="ctaDots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#F8F9FC"/>
+      <circle cx="8" cy="8" r="1" fill="#D4D9EA"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#ctaDots)"/>
+</svg>
