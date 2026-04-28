@@ -4,7 +4,7 @@
 
 /* ─── HERO ─── */
 .sec-hero {
-  padding: 140px 80px 80px;
+  padding: 80px;
   background: linear-gradient(to bottom, #f8f9fc, #f5f8ff);
   overflow: hidden;
 }
@@ -34,7 +34,7 @@
   min-width: 0;
 }
 .sec-hero-desc p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 32px;
@@ -48,14 +48,38 @@
   position: relative;
   overflow: hidden;
 }
+.sec-pillars::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/security/grid-crosshair.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
 .sec-pillars::before {
   content: '';
   position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(54,97,237,0.12) 0%, transparent 60%);
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 0% 0%, rgba(178, 195, 247, 0.22), transparent 55%);
+  pointer-events: none;
+  z-index: 1;
+}
+.sec-pillars-grid {
+  position: relative;
+  z-index: 2;
+}
+.sec-pillars-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--color-neutral-800);
   pointer-events: none;
 }
 .sec-pillars-grid {
@@ -66,8 +90,7 @@
   gap: 80px;
 }
 .sec-pillars-visual {
-  flex-shrink: 0;
-  width: 288px;
+  flex: 1;
   height: 352px;
   position: relative;
   display: flex;
@@ -75,17 +98,11 @@
   justify-content: center;
 }
 .shield-svg {
-  width: 100%;
-  height: 100%;
+  width: 288px;
+  height: 352px;
   object-fit: contain;
-  opacity: 0.6;
-}
-.shield-logo {
-  position: absolute;
-  width: 135px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
+  position: relative;
+  z-index: 2;
 }
 .sec-pillars-cards {
   flex: 1;
@@ -111,18 +128,18 @@
   color: var(--color-neutral-300);
 }
 .sec-pillar-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
 }
 .sec-pillar-divider {
   width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, #424766, transparent);
+  height: 0;
+  border-top: 1px dotted #424766;
   margin-bottom: 32px;
 }
 .sec-pillar-card h3 {
   font-family: 'Geist', 'Instrument Sans';
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 32px;
   color: var(--color-neutral-50);
@@ -141,13 +158,24 @@
   padding: 120px 80px;
   background: linear-gradient(to bottom, #f8f9fc, #f5f8ff);
   position: relative;
+  overflow: hidden;
+}
+.sec-standards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(54, 97, 237, 0.14), transparent 70%);
+  pointer-events: none;
 }
 .sec-standards > h2 {
   font-family: 'Geist', 'Instrument Sans';
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 60px;
-  letter-spacing: -0.96px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
   text-align: center;
   color: var(--color-neutral-800);
   margin-bottom: 48px;
@@ -184,16 +212,16 @@
 .sec-standard-text h3 {
   font-family: 'Geist', 'Instrument Sans';
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 30px;
   color: var(--color-neutral-800);
   margin-bottom: 8px;
 }
 .sec-standard-text p {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 24px;
   color: var(--color-neutral-600);
 }
 
@@ -336,16 +364,11 @@
   z-index: 2;
 }
 
-/* Fade-out gradient at bottom of card visuals */
-.sec-standard-visual::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, #f8f9fc);
-  pointer-events: none;
+.std-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ─── REPORT SECURITY CONCERNS ─── */
@@ -355,17 +378,33 @@
   position: relative;
   overflow: hidden;
 }
+.sec-report::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--color-neutral-200) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-neutral-200) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 65%);
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
 .sec-report-inner {
   max-width: 651px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .sec-report h2 {
   font-family: 'Geist', 'Instrument Sans';
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 72px;
-  letter-spacing: -1.2px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
   color: var(--color-neutral-900);
   margin-bottom: 16px;
 }
@@ -384,9 +423,9 @@
 }
 .sec-report p {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 24px;
   color: var(--color-neutral-700);
 }
 .sec-report a {
@@ -400,7 +439,7 @@
 /* ─── RESPONSIVE ─── */
 @media (max-width: 991px) {
   .sec-hero {
-    padding: 120px 40px 60px;
+    padding: 80px 40px;
   }
   .sec-hero-inner {
     flex-direction: column;
@@ -418,6 +457,7 @@
     flex-direction: column;
     gap: 48px;
   }
+  .sec-pillars-grid::before { display: none; }
   .sec-pillars-visual {
     width: 200px;
     height: 240px;
@@ -431,8 +471,8 @@
     padding: 80px 40px;
   }
   .sec-standards > h2 {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 1.25;
   }
   .sec-standards-grid {
     grid-template-columns: 1fr;
@@ -441,14 +481,14 @@
     padding: 80px 40px;
   }
   .sec-report h2 {
-    font-size: 42px;
-    line-height: 52px;
+    font-size: 32px;
+    line-height: 1.25;
   }
 }
 
 @media (max-width: 479px) {
   .sec-hero {
-    padding: 100px 16px 48px;
+    padding: 80px 16px;
   }
   .sec-hero-title h1 {
     font-size: 32px;
@@ -478,7 +518,7 @@
   }
   .sec-standards > h2 {
     font-size: 28px;
-    line-height: 38px;
+    line-height: 1.25;
   }
   .sec-standard-card {
     height: auto;
@@ -488,11 +528,7 @@
     padding: 48px 16px;
   }
   .sec-report h2 {
-    font-size: 32px;
-    line-height: 42px;
-  }
-  .sec-report p {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 28px;
+    line-height: 1.25;
   }
 }

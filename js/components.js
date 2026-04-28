@@ -15,6 +15,7 @@
     loadComponent('#footer-placeholder', '/components/footer.html')
   ]).then(function () {
     initNavbar();
+    initNavbarThemeSync();
     document.dispatchEvent(new Event('components-loaded'));
   });
 
@@ -71,5 +72,23 @@
         document.body.style.overflow = '';
       }
     });
+  }
+
+  // Toggle dark navbar variant when a [data-nav-dark] section is behind the navbar.
+  function initNavbarThemeSync() {
+    var nav = document.querySelector('.navbar_component');
+    if (!nav || !('IntersectionObserver' in window)) return;
+    var sections = document.querySelectorAll('[data-nav-dark]');
+    if (!sections.length) return;
+    var navHeight = nav.getBoundingClientRect().height || 72;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        nav.classList.toggle('nav-dark', entry.isIntersecting);
+      });
+    }, {
+      rootMargin: '-' + navHeight + 'px 0px -' + (window.innerHeight - navHeight - 1) + 'px 0px',
+      threshold: 0
+    });
+    sections.forEach(function (s) { observer.observe(s); });
   }
 })();

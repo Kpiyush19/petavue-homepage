@@ -18,6 +18,7 @@
   body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: clip; }
 
   /* NAV — navbar_component w-nav */
+  #navbar-placeholder { position: sticky; top: 0; z-index: 998; }
   .navbar_component {
     width: 100%;
     padding: 1rem 5%;
@@ -27,6 +28,56 @@
     border-bottom: 1px solid var(--color-neutral-200);
     display: flex; flex-flow: column;
     justify-content: flex-start; align-items: flex-start;
+    transition: background-image 0.3s ease, border-bottom-color 0.3s ease;
+  }
+
+  /* Dark variant — same .nav-dark class used on the marketing page; toggled by [data-nav-dark] sections */
+  .navbar_component.nav-dark {
+    background-image: linear-gradient(var(--color-neutral-900), var(--color-neutral-900));
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  .navbar_component.nav-dark .navbar_logo { filter: brightness(0) invert(1); }
+  .navbar_component.nav-dark .link_button,
+  .navbar_component.nav-dark .navbar_dropdown-toggle,
+  .navbar_component.nav-dark .navbar_login {
+    color: #fff !important;
+    transition: color 0.2s, background 0.2s;
+  }
+  .navbar_component.nav-dark .link_button:hover,
+  .navbar_component.nav-dark .navbar_dropdown-toggle:hover {
+    color: #fff !important;
+    background: var(--color-neutral-800) !important;
+    border-radius: 6px;
+  }
+  .navbar_component.nav-dark .navbar_login:hover { color: var(--color-primary-100) !important; }
+  .navbar_component.nav-dark .navbar_dropdown-icon svg { stroke: #fff; }
+  .navbar_component.nav-dark .badge-new {
+    background: linear-gradient(137deg, #3661ed 0%, #825CDE 100%);
+    color: #fff;
+  }
+  .navbar_component.nav-dark .navbar_menu-divider { background: rgba(255,255,255,0.15); }
+  .navbar_component.nav-dark .menu-icon_line { background: #fff; }
+  /* Dropdown panel — dark variant */
+  .navbar_component.nav-dark .navbar_dropdown-list-wrap {
+    background: var(--color-neutral-900) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  .navbar_component.nav-dark .navbar_dropdown-inner { background: rgba(45, 48, 68, 0.1) !important; }
+  .navbar_component.nav-dark .dropdown-card-icon {
+    background: rgba(45, 48, 68, 0.1) !important;
+    border-color: var(--color-neutral-800) !important;
+  }
+  .navbar_component.nav-dark .dropdown-card-icon svg { fill: #D4D9EA !important; }
+  .navbar_component.nav-dark .dropdown-header { color: var(--color-neutral-400) !important; }
+  .navbar_component.nav-dark .dropdown-card-title { color: #fff !important; }
+  .navbar_component.nav-dark .dropdown-card-desc { color: var(--color-neutral-400) !important; }
+  .navbar_component.nav-dark .dropdown-card:hover { background: var(--color-neutral-800) !important; }
+  .navbar_component.nav-dark .cs-desc { color: var(--color-neutral-400) !important; }
+  .navbar_component.nav-dark .cs-link { color: var(--color-primary-300) !important; }
+  .navbar_component.nav-dark .dropdown_column--proof { background: transparent !important; }
+  .navbar_component.nav-dark .casestudy-card {
+    background: rgba(45, 48, 68, 0.1) !important;
+    border: 1px solid var(--color-neutral-800) !important;
   }
   .navbar_container {
     width: 100%; max-width: 80rem; height: 100%;
