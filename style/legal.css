@@ -138,12 +138,114 @@
   padding-right: 0;
 }
 
+/* Subprocessors table */
+.legal-subproc-wrap {
+  width: 100%;
+  margin: 0 0 32px;
+}
+.legal-subproc {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.legal-subproc col.col-name { width: 14%; }
+.legal-subproc col.col-address { width: 22%; }
+.legal-subproc col.col-contact { width: 22%; }
+.legal-subproc col.col-desc { width: 18%; }
+.legal-subproc col.col-country { width: 24%; }
+.legal-subproc th,
+.legal-subproc td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: middle;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  border: 0.75px solid #d4d9ea;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+.legal-subproc thead th {
+  background: #f5f8ff;
+  font-weight: 600;
+  color: #2d3044;
+  line-height: 20px;
+}
+.legal-subproc tbody td {
+  font-weight: 400;
+  color: #52577a;
+}
+.legal-subproc tbody a {
+  color: #3661ed;
+  text-decoration: underline;
+}
+.legal-subproc tbody a:hover { text-decoration: underline; }
+
+.legal-updated {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  margin-bottom: 16px;
+  letter-spacing: 0;
+}
+.legal-hero h1 .text-accent {
+  color: var(--color-primary-500);
+}
+
 @media (max-width: 991px) {
   .legal-hero { padding-top: 64px; padding-bottom: 32px; }
   .legal-hero h1 { font-size: 42px; }
   .legal-body { padding-bottom: 80px; }
   .legal-body h2 { font-size: 24px; margin-top: 40px; }
 }
+/* Tablet — keep table layout but allow horizontal scroll */
+@media (max-width: 991px) {
+  .legal-subproc-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .legal-subproc { min-width: 880px; }
+}
+
+/* Mobile — stack each row as a card */
+@media (max-width: 639px) {
+  .legal-subproc-wrap { overflow: visible; }
+  .legal-subproc {
+    min-width: 0;
+    table-layout: auto;
+    display: block;
+  }
+  .legal-subproc colgroup { display: none; }
+  .legal-subproc thead { display: none; }
+  .legal-subproc tbody { display: block; }
+  .legal-subproc tr {
+    display: block;
+    border: 0.75px solid #d4d9ea;
+    background: #fff;
+    margin-bottom: 12px;
+  }
+  .legal-subproc tr:last-child { margin-bottom: 0; }
+  .legal-subproc td {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 0;
+    border-bottom: 0.75px solid #d4d9ea;
+    padding: 12px 16px;
+  }
+  .legal-subproc td:last-child { border-bottom: 0; }
+  .legal-subproc td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #2d3044;
+  }
+}
+
 @media (max-width: 479px) {
   .legal-hero h1 { font-size: 32px; letter-spacing: -0.6px; }
   .legal-body h2 { font-size: 22px; }
